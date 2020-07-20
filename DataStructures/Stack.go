@@ -5,10 +5,6 @@ import (
 	"strconv"
 )
 
-type Node struct {
-	Value int
-}
-
 type Stack struct {
 	nodes []*Node
 }
