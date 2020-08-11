@@ -1,7 +1,6 @@
-package main
+package datastructures
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -27,8 +26,6 @@ func TestDelete(t *testing.T) {
 
 	l.delete(4)
 
-	fmt.Println(l.head.Key)
-	fmt.Println(l.head.Next)
 	if l.head.Key != 2 || l.head.Next != nil {
 		t.Error("Failed to delete 3 or 4")
 	}
@@ -45,9 +42,6 @@ func TestReverse(t *testing.T) {
 	}
 
 	l.reverse()
-	l.reverse()
-
-	l.print()
 
 	if l.head.Key != 1 {
 		t.Error("Head should be at 1")
