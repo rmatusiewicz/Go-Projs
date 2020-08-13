@@ -25,9 +25,8 @@ func (s *Stack) pop() *Node {
 
 		s.nodes = s.nodes[0 : len(s.nodes)-1]
 		return n
-	} else {
-		return nil
 	}
+	return nil
 
 }
 
@@ -42,27 +41,4 @@ func (s Stack) disp() {
 	}
 
 	fmt.Println(result)
-}
-
-func main() {
-	fmt.Println("Starting")
-	s := NewStack()
-	s.disp()
-
-	s.push(&Node{3})
-	s.push(&Node{5})
-	s.push(&Node{8})
-	s.push(&Node{1})
-	s.push(&Node{0})
-	s.disp()
-
-	//3,5,8,1,0
-
-	s.pop()
-	s.disp()
-
-	s.pop()
-	s.disp()
-
-	fmt.Println("Complete")
 }
