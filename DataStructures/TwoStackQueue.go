@@ -20,12 +20,23 @@ func NewTwoStackQueue() *TwoStackQueue {
 	return s
 }
 
+func (q *TwoStackQueue) peek() (x *Node) {
+	if len(q.dqStack.nodes) > 0 {
+		return q.dqStack.nodes[len(q.dqStack.nodes)]
+	}
+	return q.nqStack.nodes[0]
+}
+
 func (q *TwoStackQueue) enqueue(x *Node) {
 	q.nqStack.nodes = append(q.nqStack.nodes, x)
 }
 
-func (q *TwoStackQueue) dequeue(x *Node) {
-
+func (q *TwoStackQueue) dequeue() (x *Node) {
+	if len(q.dqStack.nodes) > 0 { //dequeue operation just performed so dqStack still populated
+		return q.dqStack.pop()
+	}
+	q.moveAllNodesOver()
+	return q.dqStack.pop()
 }
 
 func (q *TwoStackQueue) moveAllNodesOver() {

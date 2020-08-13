@@ -1,5 +1,10 @@
 package datastructures
 
+type IQueue interface {
+	enqueue(x *Node)
+	dequeue() (x *Node)
+}
+
 type Queue struct {
 	nodes []*Node
 	next  int
