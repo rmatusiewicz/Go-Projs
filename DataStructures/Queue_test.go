@@ -60,3 +60,10 @@ func TestComplexQueue2(t *testing.T) {
 		t.Error("Empty q.Nodes should return nil")
 	}
 }
+
+func TestStackNoElements(t *testing.T) {
+	q := NewQueue()
+	if q.dequeue() != nil {
+		t.Error("No elements in queue to dequeue")
+	}
+}

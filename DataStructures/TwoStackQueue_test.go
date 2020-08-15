@@ -4,23 +4,6 @@ import (
 	"testing"
 )
 
-// func TestTwoStackTwoStackQueue(t *testing.T) {
-// 	q := NewTwoStackQueue()
-// 	q.enqueue(&Node{1})
-
-// 	if q.getSize() != 1 {
-// 		t.Error("Enqueue did not work")
-// 	}
-
-// 	if q.nqStack.nodes[0].Value != 1 {
-// 		t.Errorf("Enqueue value incorrect %d", q.nqStack.nodes[0].Value)
-// 	}
-
-// 	q.enqueue(&Node{2})
-// 	q.enqueue(&Node{3})
-
-// }
-
 func TestTwoStackEnqueue(t *testing.T) {
 	q := NewTwoStackQueue()
 	q.enqueue(&Node{1})
@@ -75,5 +58,12 @@ func TestTwoStackComplexQueue2(t *testing.T) {
 	q.dequeue()
 	if q.dequeue() != nil {
 		t.Error("Empty q.Nodes should return nil")
+	}
+}
+
+func TestTwoStackNoElements(t *testing.T) {
+	q := NewTwoStackQueue()
+	if q.dequeue() != nil {
+		t.Error("No elements in queue to dequeue")
 	}
 }
