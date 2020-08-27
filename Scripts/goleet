@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+if [ $# -eq 0 ]
+  then
+    NAME=challenge
+  else
+    NAME=$1
+fi
+
+echo "GENERATING FILES WITH NAME:" $NAME
+echo ""
+
+mkdir $NAME 
+touch ./$NAME/$NAME.go
+cat > ./$NAME/$NAME.go <<- EOF
+package $NAME
+
+func $NAME(){
+
+}
+EOF
+
+touch ./$NAME/$NAME\_test.go
+cat > ./$NAME/$NAME\_test.go <<- EOF
+package $NAME
+
+import "testing"
+
+var tests = []struct{
+    //var input
+    //var expected
+}{
+  /*
+    {},
+    {},
+    {},
+    {}, 
+    {},
+    {},
+  */
+}
+
+func Test$NAME(t *Testing.t){
+    for _, test := range tests{
+        actual := $NAME(test.input)
+        if actual != test.expected{
+            t.Errorf("Error. Expected: %v , Got: %v , Input: %v", test.expected, actual, test.input)
+        }
+    }
+}
+EOF
+
+echo "Files ready for additions...then submissions!"
+
+
