@@ -26,8 +26,8 @@ package $NAME
 import "testing"
 
 var tests = []struct{
-    //var input
-    //var expected
+    //input inputType
+    //expected expectedType
 }{
   /*
     {},
