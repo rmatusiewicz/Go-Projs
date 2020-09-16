@@ -52,38 +52,21 @@ func main(){
 //Notes
 //* Negative num will never start or end the max sub sequence (unless only one element)
 func maxSubArray(nums []int) int {
-    if len(nums) == 1 {
-      return nums[0]
-    }
-    
-    // mini starts from negative to positive change
-    // mini := 0
-    
-    // maxi starts from positive to negative change
-    // maxi := 0
-    var max int
-    sum := nums[0]
-    
-    for i := 0; i <len(nums); i++ {
-      fmt.Println(i, sum)
-      // sum = sum + nums[i]
-      if nums[i] < 0 {
-        
-      } else {
-        //Add to localMax
+   resultSum := nums[0]
+   tempSum := 0
+   
+    for i:= 0; i< len(nums); i++{
+     tempSum = tempSum + nums[i]
+     if tempSum < 0 {
+      if tempSum > resultSum {//Case: all negatives
+        resultSum = tempSum //largest negative value
       }
-      
-      
-      if sum < 0 {
-        max = sum - nums[i]
-        sum = nil
-      }
-      
-      // current := nums[i]
-      
-      //If >= 0 include in potential max
-      
-    }
-    
-    return max
+       tempSum = 0
+     } else if tempSum > resultSum{
+       resultSum = tempSum
+     }
+     
+   }
+   return resultSum
+
 }
