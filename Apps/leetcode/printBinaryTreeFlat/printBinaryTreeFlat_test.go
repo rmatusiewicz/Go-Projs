@@ -2,25 +2,43 @@ package printBinaryTreeFlat
 
 import "testing"
 
-var tests = []struct{
-    //var input
-    //var expected
+var tests = []struct {
+	input *Node
 }{
-  /*
-    {},
-    {},
-    {},
-    {}, 
-    {},
-    {},
-  */
+
+	{&Node{
+		value: 1,
+		left: &Node{
+			value: 2,
+			left: &Node{
+				value: 4,
+				left:  nil,
+				right: nil,
+			},
+			right: &Node{
+				value: 5,
+				left:  nil,
+				right: nil,
+			},
+		},
+		right: &Node{
+			value: 3,
+			left: &Node{
+				value: 6,
+				left:  nil,
+				right: nil,
+			},
+			right: &Node{
+				value: 7,
+				left:  nil,
+				right: nil,
+			},
+		},
+	}},
 }
 
-func TestprintBinaryTreeFlat(t *Testing.t){
-    for _, test := range tests{
-        actual := printBinaryTreeFlat(test.input)
-        if actual != test.expected{
-            t.Errorf("Error. Expected: %v , Got: %v , Input: %v", test.expected, actual, test.input)
-        }
-    }
+func TestPrintBinaryTreeFlat(t *testing.T) {
+	for _, test := range tests {
+		PrintBinaryTreeFlat(test.input)
+	}
 }

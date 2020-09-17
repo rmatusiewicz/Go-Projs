@@ -1,18 +1,11 @@
 package printBinaryTreeFlat
 
-func main() {
-	var testTree = &Node{
-		{value, 1},
-		{left, &Node{
-			{value, 2},
-			{left, nil},
-			{right, nil},
-		}},
-		{right, nil},
-	}
-}
+import (
+	"fmt"
+	"strconv"
+)
 
-func printBinaryTreeFlat(root *Node) {
+func PrintBinaryTreeFlat(root *Node) {
 	var children []*Node
 	childrenIndex := 0
 	children = append(children, root)
@@ -28,6 +21,21 @@ func printBinaryTreeFlat(root *Node) {
 		}
 
 		childrenIndex++
+	}
+
+	binIndex := 0
+	numToProcess := 1
+	for binIndex < len(children) {
+		for i := 0; i < numToProcess; i++ {
+			if binIndex+i < len(children) {
+				fmt.Printf(strconv.Itoa(children[binIndex+i].value))
+			} else {
+				break
+			}
+		}
+		fmt.Printf("\n")
+		binIndex = binIndex + numToProcess
+		numToProcess = 2 * numToProcess
 	}
 }
 
