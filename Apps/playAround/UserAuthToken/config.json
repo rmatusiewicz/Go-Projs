@@ -1,0 +1,29 @@
+{
+  "shared_key": "v+lUGIsyL5JbU5rfWqmH7ClgPW3o8nua80Ctd6jq4Wc=",
+  "users": [
+    {
+      "username": "eve",
+      "password_hash": "$2a$10$PQrfA5tqgEXt/XVCzHuKPel1ONgJd13LZjrvp0NxZEZ3s7DIWGfSi"
+    },
+    {
+      "username": "bob",
+      "password_hash": "$2a$10$J0WXrvrjfjgXGRojWUYX7uSzq35HwQqYVj7djtA0YHut0.kaCcURe"
+    },
+    {
+      "username": "alice",
+      "password_hash": "$2a$10$q3zqgFfTuJZVa2oC/DIwg.1xreqHKa11zgJehYaJE66hR2uROQs36"
+    }
+  ],
+  "allowed_routes": [
+    {
+      "name": "wikipedia",
+      "destination": "https://www.wikipedia.org/",
+      "users": ["eve", "bob"]
+    },
+    {
+      "name": "mickeymouse",
+      "destination": "https://www.disney.com/",
+      "users": ["bob"]
+    }
+  ]
+}
