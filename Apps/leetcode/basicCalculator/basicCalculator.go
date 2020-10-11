@@ -34,6 +34,7 @@ func BasicCalculator(s string) int {
 			//We now have the second num
 			currNum, _ = strconv.Atoi(numBuild)
 			res = operate(operant, res, currNum)
+			operant = strc
 			numBuild = ""
 		} else { //numeric
 			numBuild = numBuild + strc
@@ -56,9 +57,9 @@ func operate(op string, arg1 int, arg2 int) int {
 }
 
 func initRes(s string) (int, int) {
-	re := regexp.MustCompile(`[0-9]`)
+	re := regexp.MustCompile(`[0-9]+`)
 	indexSlc := re.FindStringIndex(s)
-	a, b := indexSlc[0], indexSlc[1]+1
+	a, b := indexSlc[0], indexSlc[1]
 	num, _ := strconv.Atoi(s[a:b])
 	return num, b
 }
